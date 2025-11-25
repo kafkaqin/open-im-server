@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: openim-msgtransfer-container
-          image: openim/openim-msgtransfer:v3.8.3
+          image: openim/openim-msgtransfer:v3.8.3-1
           env:
             - name: CONFIG_PATH
               value: "/config"
@@ -42,9 +42,15 @@ spec:
             - name: openim-config
               mountPath: "/config"
               readOnly: true
+            - mountPath: /openim-server/start-config.yml
+              name: start-config
+              subPath: start-config.yml
           ports:
             - containerPort: 12020
       volumes:
         - name: openim-config
           configMap:
             name: openim-config
+        - name: start-config
+          configMap:
+            name: openim-msgtransfer-server-start-config

@@ -37,6 +37,9 @@ spec:
             - name: openim-config
               mountPath: "/config"
               readOnly: true
+            - mountPath: /openim-server/start-config.yml
+              name: start-config
+              subPath: start-config.yml
           ports:
             - containerPort: 10260
             - containerPort: 12260
@@ -44,3 +47,6 @@ spec:
         - name: openim-config
           configMap:
             name: openim-config
+        - name: start-config
+          configMap:
+            name: group-rpc-server-start-config

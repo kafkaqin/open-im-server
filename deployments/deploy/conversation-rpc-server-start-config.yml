@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: conversation-rpc-server-start-config
+data:
+  discovery.yml: |
+    serviceBinaries:
+      openim-rpc-conversation: 1
+    toolBinaries:
+      - check-free-memory
+      - check-component
+      - seq
+    maxFileDescriptors: 10000

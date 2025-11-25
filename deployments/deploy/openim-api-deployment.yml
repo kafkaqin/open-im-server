@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: openim-api-container
-          image: openim/openim-api:v3.8.3
+          image: openim/openim-api:v3.8.3-1
           env:
             - name: CONFIG_PATH
               value: "/config"
@@ -38,6 +38,9 @@ spec:
             - name: openim-config
               mountPath: "/config"
               readOnly: true
+            - mountPath: /openim-server/start-config.yml
+              name: start-config
+              subPath: start-config.yml
           ports:
             - containerPort: 10002
             - containerPort: 12002
@@ -45,3 +48,6 @@ spec:
         - name: openim-config
           configMap:
             name: openim-config
+        - name: start-config
+          configMap:
+            name: openim-api-start-config

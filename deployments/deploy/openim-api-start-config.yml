@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openim-api-start-config
+data:
+  discovery.yml: |
+    serviceBinaries:
+      openim-api: 1
+    toolBinaries:
+      - check-free-memory
+      - check-component
+      - seq
+    maxFileDescriptors: 10000

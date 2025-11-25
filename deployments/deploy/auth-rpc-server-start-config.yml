@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-rpc-server-start-config
+data:
+  discovery.yml: |
+    serviceBinaries:
+      openim-rpc-auth: 1
+    toolBinaries:
+      - check-free-memory
+      - check-component
+      - seq
+    maxFileDescriptors: 10000
